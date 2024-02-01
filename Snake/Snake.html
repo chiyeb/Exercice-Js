@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Snake</title>
+    <link rel="stylesheet" href="Snake.css">
+</head>
+<body>
+<div id="menuPrincipal">
+    <img src="image.psd.png" style="width: 70%;">
+    <h1>Par un tunisien, pour l'iut.</h1>
+    <button id="btnJouer" class="btn">Jouer</button>
+    <button id="btnInstructions" class="btn">Instructions</button>
+    <button id="btnAbout" class="btn">À propos</button>
+</div>
+<div id="conteneurJeu" style="display: none;">
+    <h1 id="score">Score : 0</h1>
+    <div id="jeuCanvas" style="position: relative;">
+        <canvas id="terrain" width="900" height="600" style="position: absolute; border:1px solid black; left: 0; top: 0;"></canvas>
+        <canvas id="food" width="900" height="600" style="position: absolute; left: 0; top: 0;"></canvas>
+        <canvas id="snake" width="900" height="600" style="position: absolute; left: 0; top: 0;"></canvas>
+    </div>
+</div>
+
+
+
+</body>
+<script src="Snake.js"></script>
+</html>

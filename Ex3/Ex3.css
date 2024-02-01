@@ -1,0 +1,54 @@
+.puzzle{
+    display: grid;
+    width: 50%;
+    aspect-ratio: 1.1;
+    grid-template-columns: repeat(4,1fr);
+}#puzzleSlide {
+     position: relative;
+     width: 400px; /* La largeur de la div du puzzle */
+     height: 400px; /* La hauteur de la div du puzzle */
+     margin: auto; /* Centrer la div dans la page */
+     border: 3px solid #333; /* Bordure plus épaisse pour la div du puzzle */
+     background-color: #f9f9f9; /* Couleur de fond claire pour la div du puzzle */
+     border-radius: 8px; /* Coins arrondis pour la div du puzzle */
+     display: grid; /* Utiliser le modèle de grille pour aligner les boutons */
+     grid-template-columns: repeat(4, 1fr); /* Quatre colonnes d'égale largeur */
+     grid-gap: 5px; /* Espace entre les boutons */
+ }
+
+#puzzleSlide button {
+    background-color: #007bff; /* Couleur de fond bleue pour les boutons */
+    color: white; /* Couleur du texte blanc pour un meilleur contraste */
+    border: 2px solid #0056b3; /* Bordure pour les boutons */
+    border-radius: 8px; /* Coins arrondis pour les boutons */
+    font-size: 20px; /* Taille de la police pour les boutons */
+    cursor: pointer; /* Style de curseur pour indiquer que c'est cliquable */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombre pour donner du relief */
+    transition: transform 0.1s; /* Transition pour l'effet au clic */
+}
+
+#puzzleSlide button:hover {
+    background-color: #0056b3; /* Couleur de fond plus foncée au survol */
+}
+
+#puzzleSlide button:active {
+    transform: scale(0.98); /* Effet de clic pour réduire légèrement le bouton */
+}
+
+/* Style pour la div englobante de puzzleSlide pour Exercice 3 */
+div#exercice3 {
+    padding: 20px; /* Espace autour de la div interne */
+    background-color: #e9ecef; /* Couleur de fond pour la div externe */
+    border-radius: 10px; /* Bordures arrondies pour la div externe */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre pour la div externe */
+    margin-bottom: 20px; /* Espace en dessous de la div externe */
+    width: max-content; /* La largeur de la div externe s'adapte au contenu */
+    margin-left: auto; /* Centrer la div externe horizontalement */
+    margin-right: auto;
+}
+
+/* Si vous avez un titre ou un sous-titre spécifique pour Exercice 3, vous pouvez également le styliser */
+#exercice3 h1, #exercice3 h3 {
+    text-align: center; /* Centrer le titre et le sous-titre */
+    color: #333; /* Couleur du texte pour le titre et le sous-titre */
+}
