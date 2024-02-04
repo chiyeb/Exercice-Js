@@ -30,7 +30,7 @@ function initialiserJeu() {
     foodCtx.fillStyle = 'red';
     var score = 0;
     let serpent = [{x: 10, y: 10}];
-    let w = 17;
+    let w = 20;
     let h = 20;
     let directionActuelle = null;
     let futurDirection = null;
@@ -42,6 +42,13 @@ function initialiserJeu() {
     let yFood = Math.floor(Math.random() * (foodCanva.height - w))
 
 
+    function gagner() {
+        let totalSegments = (terrainCanva.width / w) * (terrainCanva.height / h);
+        if (serpent.length === totalSegments) {
+            alert("Vous avez gagné, vous avez fait un score de " + score + " points");
+            location.reload();
+        }
+    }
 
     function keyPressHandler(event) {
         if (event.key.startsWith("Arrow")) {
@@ -49,12 +56,27 @@ function initialiserJeu() {
         }
     }
     function foodSpawn() {
-        xFood = Math.floor(Math.random() * (foodCanva.width - w));
-        yFood = Math.floor(Math.random() * (foodCanva.height - w));
-        foodCtx.clearRect(0, 0, foodCanva.width, foodCanva.height);
-        foodCtx.fillStyle = 'red';
-        foodCtx.fillRect(xFood, yFood, 10, 10);
+        let positionsPossibles = [];
+        for (let x = 0; x < foodCanva.width; x += w) {
+            for (let y = 0; y < foodCanva.height; y += h) {
+                if (!serpent.some(segment => segment.x === x && segment.y === y)) {
+                    positionsPossibles.push({x, y});
+                }
+            }
+        }
+        if (positionsPossibles.length > 0) {
+            let positionAleatoire = positionsPossibles[Math.floor(Math.random() * positionsPossibles.length)];
+            xFood = positionAleatoire.x;
+            yFood = positionAleatoire.y;
+
+            foodCtx.clearRect(0, 0, foodCanva.width, foodCanva.height);
+            foodCtx.fillStyle = 'red';
+            foodCtx.fillRect(xFood, yFood, w, h);
+        } else {
+            gagner();
+        }
     }
+
     foodSpawn();
     function sortirDuTerrain() {
         let tete = serpent[0];
@@ -91,6 +113,7 @@ function initialiserJeu() {
     function move() {
         sortirDuTerrain();
         seToucheLuiMeme();
+        gagner();
         let nouvelleTete = { x: serpent[0].x, y: serpent[0].y };
         if(futurDirection === "ArrowUp" && directionActuelle !== "ArrowDown") {
             directionActuelle = futurDirection;

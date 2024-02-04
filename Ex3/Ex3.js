@@ -1,17 +1,35 @@
 //gérer le changement entre 2 éléments (quand on clique sur un élément)
-function move(number, blanc){
+function move(number, blanc) {
     const x = parseInt(document.getElementById(`button-${number}`).getAttribute('data-x'));
     const y = parseInt(document.getElementById(`button-${number}`).getAttribute('data-y'));
     const bx = parseInt(document.getElementById('blanc').getAttribute('data-x'));
     const by = parseInt(document.getElementById('blanc').getAttribute('data-y'));
-    if ((Math.abs(x - bx) === 1 && Math.abs(y - by) === 0) || (Math.abs(y - by) === 1 && Math.abs(x - bx) === 0)){
+    if ((Math.abs(x - bx) === 1 && Math.abs(y - by) === 0) || (Math.abs(y - by) === 1 && Math.abs(x - bx) === 0)) {
         document.getElementById(`button-${number}`).setAttribute('data-x', bx);
         document.getElementById(`button-${number}`).setAttribute('data-y', by);
         document.getElementById(`blanc`).setAttribute('data-x', x);
         document.getElementById(`blanc`).setAttribute('data-y', y);
-        swap(document.getElementById(`button-${number}`), blanc )
-
+        swap(document.getElementById(`button-${number}`), blanc)
     }
+    if (verifierGagne()) {
+        alert("Félicitations ! Vous avez gagné !");
+    }
+}
+//vérifier si le joueur a gagné
+function verifierGagne() {
+    for (let y = 1; y <= 4; y++) {
+        for (let x = 1; x <= 4; x++) {
+            if (x === 4 && y === 4) {
+                break;
+            }
+            const numAttendu = (y - 1) * 4 + x;
+            const bouton = document.querySelector(`button[data-x="${x}"][data-y="${y}"]`);
+            if (!bouton || parseInt(bouton.innerText) !== numAttendu) {
+                return false;
+            }
+        }
+    }
+    return true;
 }
 //échanger la place de 2 éléments
 function swap(elm1, elm2){

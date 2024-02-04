@@ -7,46 +7,6 @@
 </head>
 <body>
 <div id="messageErreur"></div>
-<form id="Formulaire" onsubmit="verifierFormulaire(event)">
-    <fieldset>
-        <legend>Étape 1 : Identité</legend>
-        <label>Civilité</label>
-        <input type="radio" name="civilite" value="Monsieur"> Monsieur
-        <input type="radio" name="civilite" value="Madame"> Madame
-        <br>
-        <label>Nom: <input type="text" id="nom" name="nom" placeholder="Champ obligatoire" required></label>
-        <br>
-        <label>Prénom: <input type="text" id="prenom" name="prenom" placeholder="Champ obligatoire" required></label>
-        <br>
-        <label>Email: <input type="email" id="email" name="email" placeholder="example@domain.com" required></label>
-        <br>
-        <label>Téléphone: <input type="tel" id="telephone" name="telephone" placeholder="par ex: +330000000000"></label>
-        <br>
-    </fieldset>
-
-    <fieldset>
-        <legend>Étape 1 : Adresse de livraison</legend>
-        <label>Adresse: <textarea id="adresse" name="adresse" required></textarea></label>
-        <br>
-        <label>Code postal: <input type="text" id="codePostal" name="codePostal" required></label>
-        <br>
-        <label>Ville: <input type="text" id="ville" name="ville" required></label>
-    </fieldset>
-
-    <fieldset>
-        <legend>Étape 1 : Informations CB</legend>
-        <label>Type de carte bancaire</label>
-        <input type="radio" name="typeCarte" value="VISA"> VISA
-        <input type="radio" name="typeCarte" value="AmEx"> AmEx
-        <input type="radio" name="typeCarte" value="Mastercard"> Mastercard
-        <br>
-        <label>Numéro de carte: <input type="text" id="numeroCarte" name="numeroCarte" required></label>
-        <br>
-        <label>Code sécurité: <input type="text" maxlength="3" id="codeSecurite" name="codeSecurite" required></label>
-    </fieldset>
-
-    <input type="submit" value="VALIDER">
-</form>
 
 <script src="Ex5.js"></script>
 
